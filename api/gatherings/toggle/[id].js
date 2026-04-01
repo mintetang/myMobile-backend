@@ -1,3 +1,4 @@
+import { applyCors } from "../../lib/cors.js";
 import mongoose from "mongoose";
 import Gathering from "../../../models/Gathering.js";
 
@@ -10,11 +11,8 @@ async function connectDB() {
 }
 
 export default async function handler(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "PUT,OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") return res.status(200).end();
+    // ✅ APPLY CORS FIRST
+    if (applyCors(req, res)) return;
 
   await connectDB();
 
