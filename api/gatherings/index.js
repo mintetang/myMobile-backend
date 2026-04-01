@@ -1,6 +1,7 @@
 import { applyCors } from "../../lib/cors.js";
 import mongoose from "mongoose";
 import Gathering from "../../models/Gathering.js";
+import "../../models/Sibling.js"; // ✅ ADD THIS
 
 let isConnected = false;
 
