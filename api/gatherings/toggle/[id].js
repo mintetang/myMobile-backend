@@ -12,7 +12,7 @@ async function connectDB() {
 
 export default async function handler(req, res) {
     // ✅ APPLY CORS FIRST
-    if (applyCors(req, res)) return;
+  if (applyCors(req, res)) return;
 
   await connectDB();
 
